@@ -1,0 +1,71 @@
+import java.util.ArrayList;
+
+public class Order
+{
+    private Address address;
+    private Email email;
+    private ShoppingCart shopCart;
+    private Item item;
+    private Customer customer;
+    private Payment payment;
+    private ArrayList<Item> list;
+    
+    public long orderNum;
+    public boolean valid = true;
+    
+    public Order(ShoppingCart shopCart)     //Items is from shopping car, must reference it
+    {
+        list = new ArrayList<Item>(shopCart.getArrayItems());       //Copying the items array into order
+        setOrderNumber();
+    }
+    
+    public boolean valid()             //If valid is true, then it is valid.
+    {
+        if(list == null)
+        {
+            System.out.println("Invalid order!");
+            valid = false;
+        }
+        else
+        {
+            valid = true;
+        }
+        
+        return valid;
+    }
+    
+    private void setOrderNumber()              //Randomisied order number 
+    {
+        orderNum = (long)(Math.floor((Math.random() * 99999999999999L)));
+    }
+    
+    public long getOrderNumber()              //Return the order number
+    {
+        return orderNum;
+    }
+    
+    /*public Customer getCustomer()           //A get method for each class so I could reference them in other classes quicker
+    {
+        return customer;
+    }
+    
+    public Payment getPayment()
+    {
+        return payment;
+    }
+    
+    public Address getAddress()
+    {
+        return address;
+    }
+    
+    public Item getItem()
+    {
+        return item;
+    }
+    
+    public Email getEmail()
+    {
+        return email;
+    }*/
+}
