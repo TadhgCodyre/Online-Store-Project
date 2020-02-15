@@ -1,0 +1,38 @@
+public class Email
+{
+    private Order order;
+    private Customer customer;
+    private Payment payment;
+    private Address address;
+    
+    public Email(Order order, Customer customer, Payment payment, Address address)
+    {
+        this.order = order;
+        this.customer = customer;
+        this.payment = payment;
+        emailSend(order, customer, payment, address);
+    }
+    
+    public void emailSend(Order order, Customer customer, Payment payment, Address address)
+    {   //Prints out the necessary info for the email
+        if(order.valid() == true && payment.getPayValid() == true)      //If method valid from class order is true, payment is valid
+        {
+            System.out.println("Hello "+customer.getFirstName()+" "+customer.getSurName());
+            System.out.println("Congratulations! Your order has been confirmed!");
+            System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+            System.out.println("Order Details: ");
+            System.out.println("Order Number: "+order.getOrderNumber());
+            System.out.println("Billing Address: "+address.getAddress());
+            System.out.println("Delivery Address: "+address.getAddress());
+            System.out.println("This email has been sent to "+customer.getEmailAddress());
+            System.out.println("");
+        }
+        else
+        {   //Email if payment is invalid
+            System.out.println("Hello "+customer.getFirstName() +customer.getSurName());
+            System.out.println("Sorry to inform you, but your payment was not a success.");
+            System.out.println("As a result, your order has been cancelled.");
+            System.out.println("This email has been sent to "+customer.getEmailAddress());
+        }
+    }
+}
