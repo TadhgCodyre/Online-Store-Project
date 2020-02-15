@@ -1,0 +1,52 @@
+public class TransactionTest
+{
+        /**
+        * main method to execute the TransactionTest methods
+        */
+    private Order order;
+       
+    public static void main(String[] args)
+    {
+        TransactionTest test = new TransactionTest();
+        //test.transaction1(); // calls the method with our test scenario
+        test.transaction2();
+    }
+        
+    /*public void transaction1()
+    {      
+        Customer customer = new Customer("Niamh", "O'Leary", "niamhol@zmail.com");        
+        ShoppingCart shopCart = new ShoppingCart();                 //Calls the ShoppingCart class
+        Item xbox = new Item("Xbox", 234565);
+        shopCart.addItem(xbox);                                     //Adds Xbox to items array etc
+        Item monster = new Item("Monster", 987621);
+        shopCart.addItem(monster);
+        Item doritos = new Item("Doritos", 234685);
+        shopCart.addItem(doritos);
+        shopCart.printCart();
+        shopCart.close();                                           //Closes the array
+        Address address = new Address("Lodran Lane", "Wood Lawn", "Galway City", "Galway", "Ireland", "H78 QL45");
+        Payment payment = new Payment(9832345926l, "9/24", "Visa", "BOI");
+        payment.getPayValid();                                      //Validates the payment
+        Order order = new Order(shopCart);
+        order.valid();                                              //Validates the order
+        Email email = new Email(order, customer, payment, address);
+    }*/
+    
+    public void transaction2()
+    {
+        Customer customer = new Customer("Joe", "Mama", "joeiscool@gmail.com");
+        ShoppingCart shopCart = new ShoppingCart();
+        Item playstation = new Item("Playstation", 509236);
+        shopCart.addItem(playstation);
+        Item dew = new Item("Mountain Dew", 548267);
+        shopCart.addItem(dew);
+        Item tayto = new Item("Tayto", 149735);
+        shopCart.addItem(tayto);
+        shopCart.printCart();
+        shopCart.removeItem(tayto);
+        Address address = new Address("Lodran Lane", "Wood Lawn", "Galway City", "Galway", "Ireland", "H78 QL45");
+        Payment payment = new Payment(987350253, "5/23", "MasterDad", "AIB");
+        Email email = new Email(order, customer, payment, address);
+        //email.emailSend(order, customer, payment);
+    }
+}
