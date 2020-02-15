@@ -1,0 +1,75 @@
+public class Payment
+{
+    private long cardNum;
+    private String cardDate;
+    private String cardType;
+    private String bank;
+    public boolean payValid = true;
+    
+    public Payment(long cardNum, String cardDate, String cardType, String bank)
+    {
+        this.cardDate = cardDate;
+        this.cardType = cardType;
+        this.cardNum = cardNum;
+        this.bank = bank;
+    }
+    
+    public long getCardNum()
+    {
+        return cardNum;
+    }
+    
+    
+    public String getCardDate()
+    {
+        return cardDate;
+    }
+    
+    private void setCardType()          //Make sure the card type is valid with an if/else statement
+    {
+        if(cardType.equals("Visa"))
+        {
+            this.getCardType("Visa");
+            System.out.println("Payment is valid");
+        }
+        else if(cardType.equals("MasterCard"))
+        {
+            this.getCardType("MasterCard");
+            System.out.println("Payment is valid");
+        }
+        else
+        {
+            payValid = false;                               //returns false if the card type is neither visa or mastercard
+            System.out.println("Payment is not valid");
+        }
+    }
+    
+    public String getCardType(String cardType)      //return the card type
+    {
+        return cardType;
+    }
+    
+    public String getBank(String bank)          //return name of bank
+    {
+        return bank;
+    }
+    
+    /*private void setPayValid(boolean payValid)
+    {
+        if(cardType != "MasterCard" || cardType != "Visa")
+        {
+            payVaild = false;
+        }
+        else
+        {
+            payValid = true;
+        }
+    }*/
+    
+    //No longer needed due to setCardType
+    
+    public boolean getPayValid()
+    {
+        return payValid;
+    }
+}
